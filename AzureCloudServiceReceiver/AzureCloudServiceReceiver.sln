@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2011
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureCloudServiceReceiver", "AzureCloudServiceReceiver.ccproj", "{83A60BD3-34F3-4ED6-A172-FE801C92363D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRoleWithSBQueue1", "WorkerRoleWithSBQueue1\WorkerRoleWithSBQueue1.csproj", "{66A87290-6D53-4517-B185-9651AAF025F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83A60BD3-34F3-4ED6-A172-FE801C92363D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A60BD3-34F3-4ED6-A172-FE801C92363D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A60BD3-34F3-4ED6-A172-FE801C92363D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A60BD3-34F3-4ED6-A172-FE801C92363D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A87290-6D53-4517-B185-9651AAF025F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A87290-6D53-4517-B185-9651AAF025F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A87290-6D53-4517-B185-9651AAF025F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A87290-6D53-4517-B185-9651AAF025F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B687556-EB48-42F9-B13B-251553C55823}
+	EndGlobalSection
+EndGlobal
