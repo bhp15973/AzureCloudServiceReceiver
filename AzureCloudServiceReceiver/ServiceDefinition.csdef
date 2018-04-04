@@ -6,6 +6,7 @@
       <Setting name="Microsoft.ServiceBus.ConnectionString" />
       <Setting name="TopicName" />
       <Setting name="SubscriptionName" />
+      <Setting name="SubscriptionFilter" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
     </ConfigurationSettings>
   </WorkerRole>

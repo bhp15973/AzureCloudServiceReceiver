@@ -5,8 +5,9 @@
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
       <Setting name="Microsoft.ServiceBus.ConnectionString" value="End" />
-      <Setting name="TopicName" value="firsttopic"/>
-      <Setting name="SubscriptionName" value="firstsubscription" />
+      <Setting name="TopicName" value="firsttopic" />
+      <Setting name="SubscriptionName" value="firstsubscription_notimportant" />
+      <Setting name="SubscriptionFilter" value="sys.Label!='important'" />
       <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="ac709c81-d539-407d-b7aa-1cc1576b6f5f" />
     </ConfigurationSettings>
   </Role>

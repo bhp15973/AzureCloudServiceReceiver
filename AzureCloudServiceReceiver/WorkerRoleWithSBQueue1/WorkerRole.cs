@@ -23,19 +23,19 @@ namespace WorkerRoleWithSBQueue1
             Trace.WriteLine("Starting processing of messages");
 
             // Initiates the message pump and callback is invoked for each message that is received, calling close on the client will stop the pump.
-            Client.OnMessage((receivedMessage) =>
+            Client.OnMessageAsync((receivedMessage) =>
                 {
                     try
                     {
                         // Process the message
                         Trace.WriteLine("Processing Service Bus message: " + receivedMessage.SequenceNumber.ToString());
-                        receivedMessage.Complete();
                     }
                     catch
                     {
                         // Handle any message processing specific exceptions here
                     }
-                }, new OnMessageOptions()  );
+                    return receivedMessage.CompleteAsync();
+                }, new OnMessageOptions());
 
             CompletedEvent.WaitOne();
         }
@@ -49,11 +49,13 @@ namespace WorkerRoleWithSBQueue1
             string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
             string topicName = CloudConfigurationManager.GetSetting("TopicName");
             string subscriptionName = CloudConfigurationManager.GetSetting("SubscriptionName");
+            string subscriptionFilter = CloudConfigurationManager.GetSetting("SubscriptionFilter");
             var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-            if (!namespaceManager.SubscriptionExists(topicName, subscriptionName))
+            if (namespaceManager.SubscriptionExists(topicName, subscriptionName))
             {
-                namespaceManager.CreateSubscription(topicName, subscriptionName);
+                namespaceManager.DeleteSubscription(topicName, subscriptionName);
             }
+            namespaceManager.CreateSubscription(topicName, subscriptionName, new SqlFilter(subscriptionFilter));
 
             // Initialize the connection to Service Bus Queue
             Client = SubscriptionClient.CreateFromConnectionString(connectionString, topicName, subscriptionName);
