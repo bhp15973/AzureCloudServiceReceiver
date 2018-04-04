@@ -29,12 +29,13 @@ namespace WorkerRoleWithSBQueue1
                     {
                         // Process the message
                         Trace.WriteLine("Processing Service Bus message: " + receivedMessage.SequenceNumber.ToString());
+                        receivedMessage.Complete();
                     }
                     catch
                     {
                         // Handle any message processing specific exceptions here
                     }
-                }, new OnMessageOptions());
+                }, new OnMessageOptions()  );
 
             CompletedEvent.WaitOne();
         }
